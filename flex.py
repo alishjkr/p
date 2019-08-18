@@ -34,6 +34,14 @@ maxgie = LINE('')
 maxgie.log("Auth Token : " + str(maxgie.authToken))
 maxgie.log("Timeline Token : " + str(maxgie.tl.channelAccessToken))
 
+kb = LINE('')
+kb.log("Auth Token : " + str(kb.authToken))
+kb.log("Timeline Token : " + str(maxgie.tl.channelAccessToken))
+
+fa = LINE('')
+fa.log("Auth Token : " + str(fa.authToken))
+fa.log("Timeline Token : " + str(maxgie.tl.channelAccessToken))
+
 waitOpen = codecs.open("Max2.json","r","utf-8")
 settingsOpen = codecs.open("max.json","r","utf-8")
 imagesOpen = codecs.open("image.json","r","utf-8")
@@ -303,7 +311,7 @@ def ClonerV2(to):
         maxgie.updateProfilePicture(path2, 'vp')
     except Exception as error:
         print(error)
-#maxg = "ua053fcd4c52917706ae60c811e39d3ea"
+#maxg = "u769bedfb28d2b6358df85b9cba997cbd"
 def sendMentionFooter(to, mid, firstmessage, lastmessage):
     try:
         arrData = ""
@@ -349,7 +357,7 @@ def mentions(to, text="", mids=[]):
         arrData = {'S':str(slen), 'E':str(elen - 4), 'M':mids[0]}
         arr.append(arrData)
         textx += mention + str(text)
-    maxgie.sendMessage(to, textx, {'AGENT_NAME':'LINE OFFICIAL', 'AGENT_LINK': 'line://ti/p/~{}'.format(maxgie.getProfile().userid), 'AGENT_ICON': "http://dl.profile.line-cdn.net/" + maxgie.getContact("ua053fcd4c52917706ae60c811e39d3ea").picturePath, 'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
+    maxgie.sendMessage(to, textx, {'AGENT_NAME':'LINE OFFICIAL', 'AGENT_LINK': 'line://ti/p/~{}'.format(maxgie.getProfile().userid), 'AGENT_ICON': "http://dl.profile.line-cdn.net/" + maxgie.getContact("u769bedfb28d2b6358df85b9cba997cbd").picturePath, 'MENTION': str('{"MENTIONEES":' + json.dumps(arr) + '}')}, 0)
 def changeVideoAndPictureProfile(pict, vids):
     try:
         files = {'file': open(vids, 'rb')}
@@ -2024,7 +2032,7 @@ async def maxgieBot(op):
                         "sentBy": {
                              "label": "{}".format(maxgie.getContact(maxgieMID).displayName),
                              "iconUrl": "https://obs.line-scdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus),
-                             "linkUrl": "line://nv/profilePopup/mid=ua053fcd4c52917706ae60c811e39d3ea"
+                             "linkUrl": "line://nv/profilePopup/mid=u769bedfb28d2b6358df85b9cba997cbd"
                         }
                     }
                     sendTemplate(to, data)
@@ -2089,7 +2097,7 @@ async def maxgieBot(op):
                         "sentBy": {
                              "label": "รีบอทสำเร็จ...",
                              "iconUrl": "https://obs.line-scdn.net/{}".format(maxgie.getContact(maxgieMID).pictureStatus),
-                             "linkUrl": "line://nv/profilePopup/mid=ua053fcd4c52917706ae60c811e39d3ea"
+                             "linkUrl": "line://nv/profilePopup/mid=u769bedfb28d2b6358df85b9cba997cbd"
                         }
                     }
                     sendTemplate(to, data)
@@ -2142,7 +2150,7 @@ async def maxgieBot(op):
                 elif text.lower() == 'ข้อมูล' or text.lower() == "about":
                     try:
                         arr = []
-                        owner = "ua053fcd4c52917706ae60c811e39d3ea"
+                        owner = "u769bedfb28d2b6358df85b9cba997cbd"
                         creator = maxgie.getContact(owner)
                         contact = maxgie.getContact(maxgieMID)
                         grouplist = maxgie.getGroupIdsJoined()
@@ -2312,6 +2320,8 @@ async def maxgieBot(op):
                 if text.lower() == "ปิดไลค์":
                     settings["autolike"] = False
                     maxgie.sendMessage(to,"ปิดแล้ว >_<")
+                    kb.sendMessage(to,"ปิดแล้ว >_<")
+                    fa.sendMessage(to,"ปิดแล้ว >_<")
                 if text.lower() == "เปิดแทค2":
                     tagadd["tagss"] = True
                     maxgie.sendMessage(to, "เปิดแล้ว >_<")
@@ -3012,7 +3022,7 @@ async def maxgieBot(op):
                         
                 elif text.lower() == 'คนสร้างกลุ่ม' or text.lower() == "แอด":
                     group = maxgie.getGroup(to)
-                  #  maxg = "ua053fcd4c52917706ae60c811e39d3ea"
+                  #  maxg = "u769bedfb28d2b6358df85b9cba997cbd"
                   #  contact = maxgie.getContact(maxg)
                     GS = group.creator
                   #  n = contact.displayName
